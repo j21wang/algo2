@@ -52,7 +52,7 @@ Divide-and-Conquer Algorithms, Sorting Algorithms, Greedy Algorithms\\
 
 \vspace{0.1in}
 
-\noindent Deadline: March 7, 11:59pm.\\ 
+\noindent Deadline: March 14, 11:59pm.\\ 
 Available points: 110. Perfect score: 100.\\
 
 \begin{center}
@@ -62,9 +62,8 @@ Available points: 110. Perfect score: 100.\\
 \noindent {\bf Teams:} Homeworks should be completed by teams of
 students - three at most. No additional credit will be given for
 students that complete a homework individually. Please inform
-Athanasios Krontiris about the members of your team as soon as
-possible - even if your ``team'' is just a single person (email: ak979
-AT cs.rutgers.edu).\\
+Athanasios Krontiris {\bf if your team has changed from the previous
+  assignment.} (email: ak979 AT cs.rutgers.edu).\\
 
 \noindent {\bf Submission Rules:} Submit your solutions electronically
 as a PDF document through \url{sakai.rutgers.edu}. Do not submit Word
@@ -88,10 +87,11 @@ prepared answers (e.g., on MS Word, etc.) that are not typeset.\\
 \noindent {\bf 25\% Rule:} For any homework problem (same will hold
 for exam questions), you can either attempt to answer the question, in
 which case you will receive between 0 and 100\% credit for that
-question, or you can write "I don't know", in which case you receive
-25\% credit for that question. Leaving the question blank is the same
-as writing "I don't know." You can and will get less than 25\% credit
-for a question that you answer erroneously.\\
+question (i.e., you can get partial credit), or you can write "I don't
+know", in which case you receive 25\% credit for that question.
+Leaving the question blank is the same as writing "I don't know." You
+can and will get less than 25\% credit for a question that you answer
+erroneously.\\
 
 \noindent {\bf Handwritten Reports:} If you want to submit a
 handwritten report, scan it and submit a PDF via Sakai. We will not
@@ -154,32 +154,35 @@ and justify your answers.\\
 {\bf Part B (25 points)}
 \end{center}
 
-\noindent {\bf Problem 2:} You are in the HR department of a company,
-and here is a job for you.  There are $n$ different projects, and $n$
-different programmers.  Every project has its unique bonus and
-difficulty.  Every programmer has his unique capability and
-expectation of bonus.
+\noindent {\bf Problem 2:} You are in the HR department of a
+technology firm, and here is a job for you.  There are $n$ different
+projects, and $n$ different programmers.
 
-You can arrange a meeting between each project manager and programmer.
-In each meeting, the project manager will give the programmer an
-interview to see whether the programmer can do the project; the
-programmer can ask the project manager about the bonus to see whether
-the bonus can meet his expectation.  After a meeting, you can get a
-result based on the feedback of the project manager and the
-programmer.  The result can be:
+Every project has its unique payoff when completed and level of
+difficulty (which are uniform, regardless which programmer will work
+on the project).  Every programmer has a unique skill set as well as
+expectations for compensation (which are uniform, regardless the
+project the programmer will work on). You cannot directly collect
+information that allows you to compare the payoff or difficulty level
+of two projects, or the capability or expectations for compensation of
+two programmers.
+
+Instead, you can arrange a meeting between each project manager and
+programmer.  In each meeting, the project manager will give the
+programmer an interview to see whether the programmer can do the
+project; the programmer can ask the project manager about the
+compensation to see whether it meets her expectations.  After the
+meeting, you can get a result based on the feedback of the project
+manager and the programmer.  The result can be:
 
 \begin{enumerate}
   \item The programmer can't do the project.
-  \item The programmer can do the project, but the bonus of the
-    project doesn't meet his expectation.
-  \item The programmer can do the project, and the bonus of the
-    project meets his expectation. At this time, we say the project
-    and the programmer \textit{match} with each other.
+  \item The programmer can do the project, but the compensation of the
+    project doesn't meet her expectation.
+  \item The programmer can do the project, and the compensation for
+    the project matches her expectations. At this time, we say the
+    project and the programmer \textit{match} with each other.
 \end{enumerate}
-
-Due to the limitation of your authority and information, you can't
-compare the bonus or difficulty of two projects, or the capability or
-expectation of bonus of two programmers.
 
 Assume that the projects and programmers match one to one. Your goal
 is to match each programmer to a project.
@@ -197,63 +200,86 @@ expected time $O ( n \log{n} )$.
 \end{center}
 
 
-\noindent {\bf Problem 3:} A national wide programming contest is hold
-at $k$ universities in North America. The $i$th university has $m_{i}$
-participants. The total number of participants is $n$, i.e., 
-$n = \sum_{i=1}^{k}m_{i}$.In the contest, participants have to write 
-programs to solve 6 problems. Each problem contain 10 test cases, each test case
-worth 10 points. Participants have to make their program to pass the
-test cases as much as possible. After the contest, each university sorts
-the scores of participants belonging to it and submit it to the organizer.
-Then the organizer has to collect the sorted scores of participants and sort 
-them in order. 
+\noindent {\bf Problem 3:} A nation-wide programming contest is held
+at $k$ universities in North America. The $i^{th}$ university has
+$m_{i}$ participants. The total number of participants is $n$, i.e.,
+$n = \sum_{i=1}^{k}m_{i}$. In the contest, participants have to write
+programs to solve 6 problems. Each problem contains 10 test cases,
+each test case is worth 10 points. Participants aim to maximize their
+collected points.  
+
+After the contest, each university sorts the scores of participants
+belonging to it and submits the grades to the organizer.  Then the
+organizer has to collect the sorted scores of participants and provide
+a final sorted list for all participants.
 
 \begin{enumerate}
 
 \item For each university, how do they sort the scores of participants
-  belonging to it? Please briefly describe one comparative sorting
-  algorithm and one non-comparative sorting algorithm.
+  belonging to it? Please briefly describe a comparative sorting
+  algorithm that is appropriate for this purpose and a non-comparative
+  sorting algorithm that works in this setup.
 
 \item How does the organizer sort the scores of participants given $k$
-  files including the sorted scores of participants? Pleas describe an
-  algorithm in $O(n\log k)$ time and justify the time complexity.
+  files, where each file includes the sorted scores of participants
+  from a specific university?  Please describe an algorithm with a
+  $O(n\log k)$ running time and justify its time complexity.
 
 \item Suppose the organizer want to figure out the participants of
   ranking $r$. Given $k$ sorted files, how does the organizer find the
   $r$th largest scores without sorting the scores of participants? Please 
   describe an algorithm in $O(k(\sum_{i=1}^{k}\log m_{i}))$ time and justify
-  its time complexity. Could you do this in $O(k+\log k \sum_{i=1}^{n}\log m_{i})$ time? 
+  its time complexity. 
+
+Could you do this in $O(k+\log k \sum_{i=1}^{n}\log m_{i})$ time? 
+
   [Hint: If $r$ is larger than $\dfrac{n}{2}$, the elements that have at least $\dfrac{n}{2}$ 
   elements larger than them should not be possible answer. The problem is how to identify these
   elements.]\\
-  
 
 \end{enumerate}
 
 
-\noindent {\bf Problem 4:} You have list of daily records stored in
-list $A$. There should be one record for every day between two exact
-days. Yet, we found that the number of records is less than the number
-of days by one. We need to identify the date of the missing
-record. You don't have access to the entire date of the record. For
-each record $i$, you can use one of the following three functions at a
-time: getDay(), getMonth() or getYear().
+\noindent {\bf Problem 4:} You have a collection of $n$ New York Times
+crossword puzzles from 01/01/1943 until 12/31/2012 stored in a
+database. The only operations that you can perform to the database are
+the following:
+\begin{itemize}
+\item crossword\_puzzle $x$ $\leftarrow$ getPuzzle( int index ); where the
+  index is between $1$ and $n$; the puzzles are \emph{not} sorted in the
+  database in terms of the date they appeared.
+\item getDay( crossword\_puzzle x ); which returns a number between 1
+  to 31.
+\item getMonth( crossword\_puzzle x ); which returns a number between
+  1 to 12.
+\item getYear( crossword\_puzzle x ); which returns a number between
+  1943 to 2012.
+\end{itemize}
+All of the above queries can be performed in constant time. You have
+found out that the number of puzzles is less than the number of days
+in the above period (from 01/01/1943 until 12/31/2012) by one, i.e.,
+one crossword puzzle was not included in the database. We need to
+identify the date of the missing crossword puzzle.
 
-Design an efficient algorithm (w.r.t time and space) to find the missing date. You are free to put any reasonable assumption. [Notes: the time complexity for this problem should be linear in number of records. Part of the grade will be for minimizing the extra space used]
+Design a linear-time algorithm that minimizes the amount of space that
+it is using to find the missing date. Ignore the effect of leap years.
 
 
 \begin{center}
 {\bf Part D (25 points)}
 \end{center}
 
-\noindent {\bf Problem 5:} You have $n$ rewards, each reward grants
-integer number of points. The $i$-th reward gives $a_i$ points. You
-have $m$ persons, where $m < n$. The $j$-th person ($P_j$) is
-satisfied if he got total of $s_j$ points or more. The task is to
-satisfy as many persons as possible. Give an efficient approximation
-algorithm for assigning rewards to persons. Show the approximation ratio of your algorithm. 
-[Note: The best possible ratio is to fill at least $1/2$ as many persons as the
-optimal solution. To achieve this ratio you can use algorithm runs in $O(m\log m+n)$]
+\noindent {\bf Problem 5:} You are running a promotional event for a
+company during which the plan is to distribute $n$ gifts to the
+participants. Consider that each gift $i$ is worth an integer number
+of dollars $a_i$. There are $m$ people participating in the event,
+where $m < n$. The $j$-th person is satisfied if he receives gifts
+that are worth at least $s_j$ dollars each. The task is to satisfy as
+many people as possible given that you have a knowledge of the gift
+amounts $a_i$ and the satisfaction requirements of each person
+$s_j$. Give an approximation algorithm for assigning rewards to people
+with a running time of $O(m\log m+n)$. What is the approximation ratio
+of your algorithm and why?
 
 
 \end{document}
