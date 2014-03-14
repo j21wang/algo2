@@ -53,71 +53,6 @@
 Divide-and-Conquer Algorithms, Sorting Algorithms, Greedy Algorithms\\
 \end{center}
 
-\vspace{0.1in}
-
-\noindent Deadline: March 14, 11:59pm.\\ 
-Available points: 110. Perfect score: 100.\\
-
-\begin{center}
-{\bf Homework Instructions:}
-\end{center}
-
-\noindent {\bf Teams:} Homeworks should be completed by teams of
-students - three at most. No additional credit will be given for
-students that complete a homework individually. Please inform
-Athanasios Krontiris {\bf if your team has changed from the previous
-  assignment.} (email: ak979 AT cs.rutgers.edu).\\
-
-\noindent {\bf Submission Rules:} Submit your solutions electronically
-as a PDF document through \url{sakai.rutgers.edu}. Do not submit Word
-documents, raw text, or hardcopies etc. Make sure to generate and
-submit a PDF instead. Each team of students should submit only a
-single copy of their solutions and indicate all team members on their
-submission.  Failure to follow these rules will result in lower grade
-in the assignment.\\
-
-\noindent {\bf Late Submissions:} No late submission is allowed. If
-you don't submit a homework on time, you get 0 points for that
-homework.\\
-
-\noindent {\bf Extra Credit for \LaTeX:} You will receive 10\% extra
-credit points if you submit your answers as a typeset PDF (using
-\LaTeX, in which case you should also submit electronically your
-source code). Resources on how to use \LaTeX\ are available on the
-course's website. There will be a 5\% bonus for electronically
-prepared answers (e.g., on MS Word, etc.) that are not typeset.\\
-
-\noindent {\bf 25\% Rule:} For any homework problem (same will hold
-for exam questions), you can either attempt to answer the question, in
-which case you will receive between 0 and 100\% credit for that
-question (i.e., you can get partial credit), or you can write "I don't
-know", in which case you receive 25\% credit for that question.
-Leaving the question blank is the same as writing "I don't know." You
-can and will get less than 25\% credit for a question that you answer
-erroneously.\\
-
-\noindent {\bf Handwritten Reports:} If you want to submit a
-handwritten report, scan it and submit a PDF via Sakai. We will not
-accept hardcopies. If you choose to submit handwritten answers and we
-are not able to read them, you will not be awarded any points for the
-part of the solution that is unreadable.\\
-
-\noindent {\bf Precision:} Try to be precise. Have in mind that you
-are trying to convince a very skeptical reader (and computer
-scientists are the worst kind...) that your answers are correct.\\
-
-\noindent {\bf Collusion, Plagiarism, etc.:} Each team of students
-must prepare its solutions independently from other teams, i.e.,
-without using common notes or worksheets with other students or trying
-to solve problems in collaboration with other teams.  You must
-indicate any external sources you have used in the preparation of your
-solution. Do not plagiarize online sources and in general make sure
-you do not violate any of the academic standards of the course, the
-department or of the university (the standards are available through
-the course's website). Failure to follow these rules may result in
-failure in the course.\\
-
-\newpage
 
 \vspace{0.1in}
 
@@ -147,12 +82,18 @@ asymptotically positive function, there are 3 cases:
 $T(n)$ is constant for $n = 1$. Make your bounds as tight as possible,
 and justify your answers.\\
 
-\noindent A. $T(n) = 2T(\frac{n}{4}) + n^{0.51}$\\
-From $T(n) = 2T(\frac{n}{4}) + n^{0.51}$, we have $a=2$, $b=4$, and $f(n)=n^{0.51}$. Therefore, $n^{log_ba} = n^{log_42} = n^{0.5}$. We compare $n^{0.51}$ to $n^{0.5}$, and we know that $n^{0.51} > n^{0.5}$, so it satisfies case 3 because $f(n) = n^{0.51}$, which is bounded below by $n^{0.5}$. Now we have to check the regularity condition, so $2 f(\frac{n}{4} \|eq cf(n)$\\
-\noindent B. $T(n) = 16 T(\frac{n}{4}) + n!$\\
-\noindent C. $T(n) = \sqrt{2} T(\frac{n}{2}) + logn$\\
-\noindent D. $T(n) = T(n-1) + lgn$\\
+\noindent A. $T(n) = 2T(\frac{n}{4}) + n^{0.51}$\\\\
+From $T(n) = 2T(\frac{n}{4}) + n^{0.51}$, we have $a=2$, $b=4$, and $f(n)=n^{0.51}$. Therefore, $n^{log_ba} = n^{log_42} = n^{0.5}$. We compare $n^{0.51}$ to $n^{0.5}$, and we know that $n^{0.51} > n^{0.5}$, so it satisfies case 3 because $f(n) = n^{0.51}$, which is bounded below by $n^{0.5}$. Now we have to check the regularity condition, so $2 (\frac{n}{4})^{0.51} \leq c (n^{0.51}) = 2 (\frac{n^{0.51}}{4^{0.51}n^{0.51}}) = \frac{2}{4^{0.51}} = 0.986 \leq c$. Therefore, the regularity condition is satisfied, so $T(n) = \Theta( f(n)) = \Theta(n^{0.51})$. \\\\
+
+\noindent B. $T(n) = 16 T(\frac{n}{4}) + n!$\\\\
+From $T(n) = 16 T(\frac{n}{4}) + n!$, we have $a=16$, $b=4$, and $f(n)=n!$. Since a running time of $n^n$ is worse than $n!$, we can let $f(n)=n^n$ for now. Therefore, $n^{log_ba} = n^{log_{16}{4}} = n^2$, so it satisfies case 3 because $f(n) = n^n$, which is bounded below by $n^2$. Now we have to check the regularity condition, so $16 (\frac{n}{4})^n \leq c (n^{n}) = 16 (\frac{n^n}{4^n}) \leq c (n^{n}) = 16 (\frac{n^n}{4^nn^n}) = (\frac {16}{4^n}) \leq c$. For all sufficiently large $n$, $c < 1$. Therefore, the regularity condition is satisfied, so $T(n) = \Theta(n!)$.\\\\
+
+\noindent C. $T(n) = \sqrt{2} T(\frac{n}{2}) + logn$\\\\
+From $T(n) = \sqrt{2} T(\frac{n}{2}) + logn$, we have $a=\sqrt{2}$, $b=2$, and $f(n)=logn$. Therefore, $n^{log_ba} = n^{log_{2}{\sqrt{2}}} = n^{0.5}$, so it satisfies case 1 because $f(n) = logn$, which is bounded above by $n^{0.5}$. So $T(n) = \Theta(n^{log_ba}) = \Theta(n^{log_2\sqrt{2}}) = \Theta(n^{0.5})$.\\\\
+
+\noindent D. $T(n) = T(n-1) + lgn$\\ n lgn\\
 \noindent E. $T(n) = 5T(n/5) + \frac{n}{lgn}$\\
+From $T(n) = 5T(n/5) + \frac{n}{lgn}$, we have $a=5$, $b=5$, and $f(n)=\frac{n}{lgn}$. Therefore, $n^{log_ba} = n^{log_{5}{5}} = n$, so it satisfies case 1 because $f(n)=\frac{n}{lgn}$, which grows smaller and smaller for sufficiently large $n$. It is bounded above by $n$, so $T(n) = \Theta(n^{log_ba}) = \Theta(n^{log_55}) = \Theta(n)$.\\\\
 
 \begin{center}
 {\bf Part B (25 points)}
@@ -316,7 +257,7 @@ $s_j$. Give an approximation algorithm for assigning rewards to people
 with a running time of $O(m\log m+n)$. What is the approximation ratio
 of your algorithm and why?\\
 
-\noindent Let $n$ be the number of gifts and $m$ be the number of people participating in the event, where $m<n$. To satisfy as many people as possible given the gift amounts $a_i$ and the satisfaction requirements of each person $s_j$, we will sort gifts in terms of their prices from lowest price to highest price, using radix sort. Because there are $n$ gifts, and radix sort is linear, we have $n$ as our running time now. To continue, we will build a min heap with the people's satisfaction requirements, and building a min heap is linear time, so we have a running time of $m$ in addition to the $n$ from sorting the gifts. To proceed, we will take the minimum satisfaction requirement from the heap, which requires a worst case running time of $log(m)$ to traverse the heap since the heap has a height of $log(m)$. We will take the minimum satisfaction requirement and compare it to first value -- smallest value -- in sorted gifts. If that gift value is greater than or equal to that person's satisfaction requirement, then we remove that person from the heap, and we remove the gift from the list. If that gift value is not greater than or equal to that person's satisfaction requirement, then we continue traversing the sorted gifts, and whenever we hit a gift that satisfies the person, then we remove the person from the heap and the gift from the list. Continue removing the minimum value from the heap until each person gets a gift or until no gift satisfies that person. Therefore, this algorithm will satisfy as many people as possible with the running time of $O(mlogm + n)$.
+\noindent Let $n$ be the number of gifts and $m$ be the number of people participating in the event, where $m<n$. To satisfy as many people as possible given the gift amounts $a_i$ and the satisfaction requirements of each person $s_j$, we will sort gifts in terms of their prices from lowest price to highest price, using radix sort. Because there are $n$ gifts, and radix sort is linear, we have $n$ as our running time now. To continue, we will build a min heap with the people's satisfaction requirements, and building a min heap is linear time, so we have a running time of $m$ in addition to the $n$ from sorting the gifts. To proceed, we will take the minimum satisfaction requirement from the heap, which requires a worst case running time of $log(m)$ to traverse the heap since the heap has a height of $log(m)$. We will take the minimum satisfaction requirement and compare it to first value -- smallest value -- in sorted gifts. If that gift value is greater than or equal to that person's satisfaction requirement, then we remove that person from the heap, and we remove the gift from the list. If that gift value is not greater than or equal to that person's satisfaction requirement, then we continue traversing the sorted gifts, adding those prices to the total sum until you get a sum greater than or equal to the person's satisfaction price. Then we remove the person from the heap and the gift(s) from the list. Continue removing the minimum value from the heap until each person gets a gift or until you run out of gifts. Therefore, this algorithm will satisfy as many people as possible with the running time of $O(mlogm + n)$.
 
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  14 MAR 2014 09:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  14 MAR 2014 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -836,103 +836,108 @@ $[]$
 LaTeX Font Info:    Font shape `T1/fav/bx/n' in size <12> not available
 (Font)              Font shape `T1/fav/b/n' tried instead on input line 52.
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
-
- []
-
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 72.
-(/usr/local/texlive/2013/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-)
-Underfull \hbox (badness 2486) in paragraph at lines 71--78
-\T1/fav/b/n/10 Submission Rules: \T1/fav/m/n/10 Sub-mit your so-lu-tions elec-t
-ron-i-cally as a PDF doc-u-ment through
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--78
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--82
-
- []
-
-LaTeX Font Info:    Font shape `T1/fav/bx/n' in size <7.6> not available
-(Font)              Font shape `T1/fav/b/n' tried instead on input line 83.
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--89
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--98
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--108
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--119
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
+
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 91--93
+\T1/fav/m/n/10 From $\OML/zavm/m/it/10 T\OT1/zavm/m/n/10 (\OML/zavm/m/it/10 n\O
+T1/zavm/m/n/10 ) = []\OML/zavm/m/it/10 T\OT1/zavm/m/n/10 ([]) + \OML/zavm/m/it/
+10 logn$\T1/fav/m/n/10 , we have $\OML/zavm/m/it/10 a \OT1/zavm/m/n/10 = []$\T1
+/fav/m/n/10 , $\OML/zavm/m/it/10 b \OT1/zavm/m/n/10 = 2$\T1/fav/m/n/10 , and $\
+OML/zavm/m/it/10 f\OT1/zavm/m/n/10 (\OML/zavm/m/it/10 n\OT1/zavm/m/n/10 ) = \OM
+L/zavm/m/it/10 logn$\T1/fav/m/n/10 . There-fore,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--97
 
  []
 
 [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 146--149
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--156
-
- []
-
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 222--226
+Underfull \hbox (badness 10000) in paragraph at lines 163--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--238
+Underfull \hbox (badness 10000) in paragraph at lines 175--179
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 251--254
+Underfull \hbox (badness 10000) in paragraph at lines 192--195
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+fav on input line 263.
+LaTeX Font Info:    Try loading font information for TS1+fav on input line 204.
 
-LaTeX Font Info:    No file TS1fav.fd. on input line 263.
+LaTeX Font Info:    No file TS1fav.fd. on input line 204.
 
 LaTeX Font Warning: Font shape `TS1/fav/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textbullet' on input line 263.
+(Font)              for symbol `textbullet' on input line 204.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 279--281
+Underfull \hbox (badness 10000) in paragraph at lines 220--222
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 307--318
+Underfull \hbox (badness 10000) in paragraph at lines 248--259
 
  []
 
@@ -942,13 +947,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 5624 strings out of 493315
- 77507 string characters out of 6137904
- 153940 words of memory out of 5000000
- 8904 multiletter control sequences out of 15000+600000
- 36501 words of font info for 75 fonts, out of 8000000 for 9000
+ 5596 strings out of 493315
+ 77114 string characters out of 6137904
+ 155940 words of memory out of 5000000
+ 8883 multiletter control sequences out of 15000+600000
+ 29846 words of font info for 69 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,5n,45p,1603b,177s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,5n,45p,1658b,177s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/te
 xlive/2013/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}{/usr/local/texlive/2013
@@ -956,15 +961,14 @@ xlive/2013/texmf-dist/fonts/enc/dvips/arev/arevot1.enc}{/usr/local/texlive/2013
 t/fonts/type1/public/arev/ArevSans-Bold.pfb></usr/local/texlive/2013/texmf-dist
 /fonts/type1/public/arev/ArevSans-Oblique.pfb></usr/local/texlive/2013/texmf-di
 st/fonts/type1/public/arev/ArevSans-Roman.pfb></usr/local/texlive/2013/texmf-di
-st/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts
-/type1/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2013/texmf-dist/fonts/
-type1/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
-ype1/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2013/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm1000.pfb>
-Output written on hw_2.pdf (5 pages, 79693 bytes).
+st/fonts/type1/mathdesign/mdbch/md-chb7t.pfb></usr/local/texlive/2013/texmf-dis
+t/fonts/type1/mathdesign/mdbch/md-chb7y.pfb></usr/local/texlive/2013/texmf-dist
+/fonts/type1/mathdesign/mdbch/md-chr7v.pfb></usr/local/texlive/2013/texmf-dist/
+fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on hw_2.pdf (5 pages, 72849 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
+ 56 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
