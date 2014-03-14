@@ -148,6 +148,7 @@ $T(n)$ is constant for $n = 1$. Make your bounds as tight as possible,
 and justify your answers.\\
 
 \noindent A. $T(n) = 2T(\frac{n}{4}) + n^{0.51}$\\
+From $T(n) = 2T(\frac{n}{4}) + n^{0.51}$, we have $a=2$, $b=4$, and $f(n)=n^{0.51}$. Therefore, $n^{log_ba} = n^{log_42} = n^{0.5}$. We compare $n^{0.51}$ to $n^{0.5}$, and we know that $n^{0.51} > n^{0.5}$, so it satisfies case 3 because $f(n) = n^{0.51}$, which is bounded below by $n^{0.5}$. Now we have to check the regularity condition, so $2 f(\frac{n}{4} \|eq cf(n)$\\
 \noindent B. $T(n) = 16 T(\frac{n}{4}) + n!$\\
 \noindent C. $T(n) = \sqrt{2} T(\frac{n}{2}) + logn$\\
 \noindent D. $T(n) = T(n-1) + lgn$\\
@@ -232,7 +233,11 @@ The last step will begin with creating another new array of integers (we'll call
 \item How does the organizer sort the scores of participants given $k$
   files, where each file includes the sorted scores of participants
   from a specific university?  Please describe an algorithm with a
-  $O(n\log k)$ running time and justify its time complexity.
+  $O(n\log k)$ running time and justify its time complexity.\\
+
+Essentially, we have $k$ sorted lists that we have to merge together into one sorted list. We put a pointer at  the first element from each list, and make a min heap using all those values, but we have to keep track of which list that element came from. To form our one sorted list, we remove the minimum element from the heap and add it to the one sorted list, and we have to make sure the move our pointer from that element's original list over to the next element in that same list. Once the pointer is moved to the next element, we take that element and add it to the heap. We repeat this process until all the elements are added to the final list. 
+
+We have to iterate through all of the scores $n$ to add them to the heap, which requires $n$ as the running time. Then, for each score, we have to add it to the heap, which has height $log k$. Therefore, we have a total running time of $O(n\log k)$.
 
 \item Suppose the organizer want to figure out the participants of
   ranking $r$. Given $k$ sorted files, how does the organizer find the
@@ -275,33 +280,22 @@ it is using to find the missing date. Ignore the effect of leap years.\\
 
 \begin{enumerate}
 
-\item Start by creating an array of integers (all inititilized to 0) with a length of the number of years (1943 - 2012).
+\item Start by summing up all the years from 1943 to 2012, and save that value into a variable, totalYearSum.
 
 \item Go through the entries in the database using getPuzzle() starting at zero, and perform
-a getYear() on all of them.  For every puzzle, go to the array index corresponding to that puzzles 
-year and increase it by 1. 
+a getYear() on all of them.  For every puzzle, take totalYearSum and subtract from it the value you get from getYear(), and save the new value into totalYearSum. By the time all the entries are iterated through and the subtraction is done, you'll end up with totalYearSum equalling the year that you're missing.
 
-\item Traverse the array and find the year (array index) that doesn't have a value of 365.  This is the year of the 
-missing puzzle.
-
-\item Create another array of length 12 (number of months) and inititialize each index to 0.
+\item Sum up the months from 1 (January) to 12 (December), and save that value into a variable, totalMonthSum.
 
 \item Go through the entries in the database again and do a getYear on them.  If the year matches the 
-year of the missing puzzle, do a getMonth() on it.  Then go to the month array index corresponding to the month
-and increment the value at that index.
+year of the missing puzzle, do a getMonth() on it. For every puzzle that you do a getMonth() on, take totalMonthSum and subtract from it the value you get from getMonth(), and save the new value into totalMonthSum. By the time all the entries are iterated through and the subtraction is done, you'll end up with totalMonthSum equalling the month that you're missing.
 
-\item After that, go through the month array and see which month has one less day than it should have.  This is the month of the missing puzzle.
-
-\item Create another array with a length matching the number of days in the missing month
-and inititialize each index to 0.
+\item Since you know what month you're missing, you know how many days are in that month (ignoring the fact that it could be a leap year). Sum up from 1 to the number of days there are in the month, and save that value into a variable, totalDaySum.
 
 \item Go through the entries in the database again and do a getYear() on them.  If the year matches the 
-year of the missing puzzle, do a getMonth() on it.  If the month matches the month of the missing puzzle, do a getDay()
-on it.  Then go to that index of the array of days and increment the value.  
+year of the missing puzzle, do a getMonth() on it.  If the month matches the month of the missing puzzle, do a getDay() on it. For every puzzle that you do a getDay() on, take totalDaySum and subtract form it the value you get from getDay(), and save the new value into totalDaySum. By the time all the entries are iterated through and the subtraction is done, you'll end up with the totalDaySum equalling the day that you're missing.
 
-\item Then go through the day array and find which index has a value of 0.  This is the day of the missing puzzle.
-
-\item Now you have the date of the missing puzzle.
+\item Now you have the date of the missing puzzle since we have the variables totalYearSum, totalMonthSum, and totalDaySum, and this was done with constant space and linear time since going through the database entries each time is $O(n)$.
 
 \end{enumerate}
 
@@ -321,7 +315,7 @@ $s_j$. Give an approximation algorithm for assigning rewards to people
 with a running time of $O(m\log m+n)$. What is the approximation ratio
 of your algorithm and why?\\
 
-\noindent Let $n$ be the number of gifts and $m$ be the number of people participating in the event, where $m<n$. To satisfy as many people as possible given the gift amounts $a_i$ and the satisfaction requirements of each person $s_j$, we will sort gifts in terms of their prices from lowest price to highest price, using radix sort. Because there are $n$ gifts, and radix sort is linear, we have $n$ as our running time now. To continue, we will build a min heap with the people's satisfaction requirements, and building a min heap is linear time, so we have a running time of $m$ in addition to the $n$ from sorting the gifts. To proceed, we will take the minimum satisfaction requirement from the heap, which requires a worst case running time of $log(m)$ to traverse the heap. We will take the minimum satisfaction requirement and compare it to first value -- smallest value -- in sorted gifts. If that gift value is greater than or equal to that person's satisfaction requirement, then we remove that person from the heap, and we remove the gift from the list. If that gift value is not greater than or equal to that person's satisfaction requirement, then we continue traversing the sorted gifts, and whenever we hit a gift that satisfies the person, then we remove the person from the heap and the gift from the list. Continue removing the minimum value from the heap until each person gets a gift or until no gift satisfies that person. Therefore, this algorithm will satisfy as many people as possible with the running time of $O(mlogm + n)$.
+\noindent Let $n$ be the number of gifts and $m$ be the number of people participating in the event, where $m<n$. To satisfy as many people as possible given the gift amounts $a_i$ and the satisfaction requirements of each person $s_j$, we will sort gifts in terms of their prices from lowest price to highest price, using radix sort. Because there are $n$ gifts, and radix sort is linear, we have $n$ as our running time now. To continue, we will build a min heap with the people's satisfaction requirements, and building a min heap is linear time, so we have a running time of $m$ in addition to the $n$ from sorting the gifts. To proceed, we will take the minimum satisfaction requirement from the heap, which requires a worst case running time of $log(m)$ to traverse the heap since the heap has a height of $log(m)$. We will take the minimum satisfaction requirement and compare it to first value -- smallest value -- in sorted gifts. If that gift value is greater than or equal to that person's satisfaction requirement, then we remove that person from the heap, and we remove the gift from the list. If that gift value is not greater than or equal to that person's satisfaction requirement, then we continue traversing the sorted gifts, and whenever we hit a gift that satisfies the person, then we remove the person from the heap and the gift from the list. Continue removing the minimum value from the heap until each person gets a gift or until no gift satisfies that person. Therefore, this algorithm will satisfy as many people as possible with the running time of $O(mlogm + n)$.
 
 
 \end{document}
