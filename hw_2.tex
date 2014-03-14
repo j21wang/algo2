@@ -148,6 +148,7 @@ $T(n)$ is constant for $n = 1$. Make your bounds as tight as possible,
 and justify your answers.\\
 
 \noindent A. $T(n) = 2T(\frac{n}{4}) + n^{0.51}$\\
+From $T(n) = 2T(\frac{n}{4}) + n^{0.51}$, we have $a=2$, $b=4$, and $f(n)=n^{0.51}$. Therefore, $n^{log_ba} = n^{log_42} = n^{0.5}$. We compare $n^{0.51}$ to $n^{0.5}$, and we know that $n^{0.51} > n^{0.5}$, so it satisfies case 3 because $f(n) = n^{0.51}$, which is bounded below by $n^{0.5}$. Now we have to check the regularity condition, so $2 f(\frac{n}{4} \|eq cf(n)$\\
 \noindent B. $T(n) = 16 T(\frac{n}{4}) + n!$\\
 \noindent C. $T(n) = \sqrt{2} T(\frac{n}{2}) + logn$\\
 \noindent D. $T(n) = T(n-1) + lgn$\\
@@ -270,33 +271,22 @@ it is using to find the missing date. Ignore the effect of leap years.\\
 
 \begin{enumerate}
 
-\item Start by creating an array of integers (all inititilized to 0) with a length of the number of years (1943 - 2012).
+\item Start by summing up all the years from 1943 to 2012, and save that value into a variable, totalYearSum.
 
 \item Go through the entries in the database using getPuzzle() starting at zero, and perform
-a getYear() on all of them.  For every puzzle, go to the array index corresponding to that puzzles 
-year and increase it by 1. 
+a getYear() on all of them.  For every puzzle, take totalYearSum and subtract from it the value you get from getYear(), and save the new value into totalYearSum. By the time all the entries are iterated through and the subtraction is done, you'll end up with totalYearSum equalling the year that you're missing.
 
-\item Traverse the array and find the year (array index) that doesn't have a value of 365.  This is the year of the 
-missing puzzle.
-
-\item Create another array of length 12 (number of months) and inititialize each index to 0.
+\item Sum up the months from 1 (January) to 12 (December), and save that value into a variable, totalMonthSum.
 
 \item Go through the entries in the database again and do a getYear on them.  If the year matches the 
-year of the missing puzzle, do a getMonth() on it.  Then go to the month array index corresponding to the month
-and increment the value at that index.
+year of the missing puzzle, do a getMonth() on it. For every puzzle that you do a getMonth() on, take totalMonthSum and subtract from it the value you get from getMonth(), and save the new value into totalMonthSum. By the time all the entries are iterated through and the subtraction is done, you'll end up with totalMonthSum equalling the month that you're missing.
 
-\item After that, go through the month array and see which month has one less day than it should have.  This is the month of the missing puzzle.
-
-\item Create another array with a length matching the number of days in the missing month
-and inititialize each index to 0.
+\item Since you know what month you're missing, you know how many days are in that month (ignoring the fact that it could be a leap year). Sum up from 1 to the number of days there are in the month, and save that value into a variable, totalDaySum.
 
 \item Go through the entries in the database again and do a getYear() on them.  If the year matches the 
-year of the missing puzzle, do a getMonth() on it.  If the month matches the month of the missing puzzle, do a getDay()
-on it.  Then go to that index of the array of days and increment the value.  
+year of the missing puzzle, do a getMonth() on it.  If the month matches the month of the missing puzzle, do a getDay() on it. For every puzzle that you do a getDay() on, take totalDaySum and subtract form it the value you get from getDay(), and save the new value into totalDaySum. By the time all the entries are iterated through and the subtraction is done, you'll end up with the totalDaySum equalling the day that you're missing.
 
-\item Then go through the day array and find which index has a value of 0.  This is the day of the missing puzzle.
-
-\item Now you have the date of the missing puzzle.
+\item Now you have the date of the missing puzzle, and this was done with constant space.
 
 \end{enumerate}
 
