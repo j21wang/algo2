@@ -92,7 +92,7 @@ From $T(n) = 16 T(\frac{n}{4}) + n!$, we have $a=16$, $b=4$, and $f(n)=n!$. Sinc
 From $T(n) = \sqrt{2} T(\frac{n}{2}) + logn$, we have $a=\sqrt{2}$, $b=2$, and $f(n)=logn$. Therefore, $n^{log_ba} = n^{log_{2}{\sqrt{2}}} = n^{0.5}$, so it satisfies case 1 because $f(n) = logn$, which is bounded above by $n^{0.5}$. So $T(n) = \Theta(n^{log_ba}) = \Theta(n^{log_2\sqrt{2}}) = \Theta(n^{0.5})$.\\\\
 
 \noindent D. $T(n) = T(n-1) + lgn$\\\\
-n lgn\\\\
+This problem does not fit the general version of the Master Theorem, so we can't apply the Master Theorem for this problem. From $T(n) = T(n-1) + lgn$, we can conclude that $T(n-1) = T(n-2) + lg(n-1)$, $T(n-2) = T(n-3) + lg(n-2)$, $T(n-3) = T(n-4) + lg(n-3)$, etc. Therefore, from all those recursive calls, we have the summation $T(n) = \sum_{i=1}^{n}f(n) = \sum_{i=1}^{n}f(n)$. $f(n) = lgn$, so we have $\sum_{i=1}^{n}lgn = lg(n!)$. We can apply Stirling's formula to $lg(n!)$, and since we know that Stirling's formula is $lg(n!) = nlg(n) - n + O(lg(n))$ and has a worst case running time of $O(nlgn)$, we can conclude that $T(n) = O(nlgn)$. \\\\
 
 \noindent E. $T(n) = 5T(n/5) + \frac{n}{lgn}$\\\\
 From $T(n) = 5T(n/5) + \frac{n}{lgn}$, we have $a=5$, $b=5$, and $f(n)=\frac{n}{lgn}$. Therefore, $n^{log_ba} = n^{log_{5}{5}} = n$, so it satisfies case 1 because $f(n)=\frac{n}{lgn}$, which grows smaller and smaller for sufficiently large $n$. It is bounded above by $n$, so $T(n) = \Theta(n^{log_ba}) = \Theta(n^{log_55}) = \Theta(n)$.\\\\
