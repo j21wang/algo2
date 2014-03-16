@@ -188,11 +188,15 @@ We have to iterate through all of the scores $n$ to add them to the heap, which 
   describe an algorithm in $O(k(\sum_{i=1}^{k}\log m_{i}))$ time and justify
   its time complexity. 
 
-Could you do this in $O(k+\log k \sum_{i=1}^{n}\log m_{i})$ time? 
+Could you do this in $O(k+\log k \sum_{i=1}^{k}\log m_{i})$ time? 
 
   [Hint: If $r$ is larger than $\dfrac{n}{2}$, the elements that have at least $\dfrac{n}{2}$ 
   elements larger than them should not be possible answer. The problem is how to identify these
   elements.]\\
+
+We begin with $k$ sorted files, and we will be applying the median of medians algorithm. To find the $r$th largest scores, we only consider the $r$ largest scores in each list. We take the first list and find the median $m$ using $\frac{r}{2}$ if $r$ is even. If $r$ is odd, then $m$ = $\frac{r}{2} + 1$. $m$ is our pivot. Therefore, in each list, we take ALL the values in all the lists higher than $m$, which we can put into an array $h$. Our recursive function findMedian is defined as: If $r$ lies between the size of $h$ and the size of $h + m$, then we stop; our median is equal to the $r$th largest score. If $r$ is greater than or equal to the size of $h$, then we call findMedian on the values less than $m$. If $r$ is less than the size of $h + m$, then we call findMedian on the values greater than $m$. Once we get $m$ to equal $r$, then we know that it is the $r$th largest score. This algorithm is $O(k(\sum_{i=1}^{k}\log m_{i}))$ since we have at most $k$ lists, and in the worse case, for each list, we call findMedian, which is $log m$. \\
+
+We cannot do this in $O(k+\log k \sum_{i=1}^{k}\log m_{i})$ time. We have at most $k$ lists, so it is impossible to have $\log k \sum_{i=1}^{k}\log m_{i}$. \\
 
 \end{enumerate}
 
