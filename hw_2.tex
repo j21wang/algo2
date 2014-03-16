@@ -135,11 +135,44 @@ Assume that the projects and programmers match one to one. Your goal
 is to match each programmer to a project.
 
 {\bf A.} Show that any algorithm for this problem must need $\Omega( n
-\log{n} )$ meetings in the worst case.
+\log{n} )$ meetings in the worst case.\\
+{\bfseries ANSWER: }\\
+$n! \le l \le 2^n$, $n! \le 2^n$, $\log_2 n! \leq \log_2 2^n$, $\log_2 n! \leq ?(n log_2 2)$, $\Theta(n \log_2 n) \leq n$, $\Theta(n \log_2 n) \leq n$, $\Omega(n \log_2 n) = n$\\
+
 
 {\bf B.}  Design a randomized algorithm for this problem that runs in
 expected time $O ( n \log{n} )$.
+{\bfseries ANSWER: }\\
+This algorithm is very similar to quick sort. Pick a random project, and ask every programmer if they can do the job. Sort the programmers into three lists:
+\begin{enumerate}
+\item Ones that can't do the project
+\item Ones for whom the compensation doesn't meet expectation
+\item The right programmer for the project
+\end{enumerate}
+Then take the right programmer from above and ask about each of the non-matching projects. Sort the projects into two lists:
+\begin{enumerate}
+\item Ones that the programmer can do (but don't offer the right compensation)
+\item Ones that the programmer can't do
+\end{enumerate}
+These two steps are done to give some organization to the data (because the problem specifies that you can't directly compare/sort each group).
 
+
+
+
+
+Then, take a random programmer from 2 (compensation not enough) and repeat the above process with the jobs from the second 2 (the originally matched programmer can't do, i.e. skill isn't good enough). You don't have to compare the group 2 programmers with the group 1 projects because you already know that compensation isn't going to match. You repeat this until all group 2 programmers and projects are matched.
+
+
+
+
+
+At this point, in the average case, about half of your programmers and projects are matched. Then, you repeat the above process with the programmers and projects from each group 1.
+
+
+
+
+
+This algorithm is basically doing quicksort (divide and conquer) twice. Quicksort has an expected runtime of $O(n \log n)$. $\log n$ comes from breaking the lists into two each time. $n$ comes from having to do the process for each element in the lists. Because constants are dropped, the above algorithm also has an expected runtime of $O(n \log n)$.
 \newpage
 
 \begin{center}
