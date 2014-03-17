@@ -137,7 +137,12 @@ is to match each programmer to a project.
 {\bf A.} Show that any algorithm for this problem must need $\Omega( n
 \log{n} )$ meetings in the worst case.\\\\
 {\bfseries ANSWER: }\\
-$n! \le l \le 2^n$, $n! \le 2^n$, $\log_2 n! \leq \log_2 2^n$, $\log_2 n! \leq ?(n log_2 2)$, $\Theta(n \log_2 n) \leq n$, $\Theta(n \log_2 n) \leq n$, $\Omega(n \log_2 n) = n$\\
+$n! \le l \le 2^n$\\
+$n! \le 2^n$\\
+$\lg n! \leq \lg 2^n$\\
+$\lg n! \leq n \lg 2$\\
+$\Theta(n \lg n) \leq n$\\
+$\Omega(n \lg n) = n$\\
 
 
 {\bf B.}  Design a randomized algorithm for this problem that runs in
